@@ -1,0 +1,16 @@
+C:\Users\drans\source\repos\Possible Points Calculator\obj\Debug\MainWindow.g.cs
+C:\Users\drans\source\repos\Possible Points Calculator\obj\Debug\App.g.cs
+C:\Users\drans\source\repos\Possible Points Calculator\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\drans\source\repos\Possible Points Calculator\obj\Debug\Possible Points Calculator_MarkupCompile.cache
+C:\Users\drans\source\repos\Possible Points Calculator\obj\Debug\Possible Points Calculator_MarkupCompile.lref
+C:\Users\drans\source\repos\Possible Points Calculator\bin\Debug\Possible Points Calculator.exe.config
+C:\Users\drans\source\repos\Possible Points Calculator\bin\Debug\Possible Points Calculator.exe
+C:\Users\drans\source\repos\Possible Points Calculator\bin\Debug\Possible Points Calculator.pdb
+C:\Users\drans\source\repos\Possible Points Calculator\obj\Debug\App.baml
+C:\Users\drans\source\repos\Possible Points Calculator\obj\Debug\MainWindow.baml
+C:\Users\drans\source\repos\Possible Points Calculator\obj\Debug\Possible Points Calculator.g.resources
+C:\Users\drans\source\repos\Possible Points Calculator\obj\Debug\Possible_Points_Calculator.Properties.Resources.resources
+C:\Users\drans\source\repos\Possible Points Calculator\obj\Debug\Possible Points Calculator.csproj.GenerateResource.cache
+C:\Users\drans\source\repos\Possible Points Calculator\obj\Debug\Possible Points Calculator.csproj.CoreCompileInputs.cache
+C:\Users\drans\source\repos\Possible Points Calculator\obj\Debug\Possible Points Calculator.exe
+C:\Users\drans\source\repos\Possible Points Calculator\obj\Debug\Possible Points Calculator.pdb

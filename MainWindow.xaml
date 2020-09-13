@@ -3,10 +3,41 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Possible_Points_Calculator"
+		xmlns:vm="clr-namespace:Possible_Points_Calculator.ViewModels"
+		xmlns:conv="clr-namespace:Possible_Points_Calculator.Converters"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+	<Window.DataContext>
+		<vm:MainViewModel />
+	</Window.DataContext>
+
+	<DockPanel>
+		<Menu DockPanel.Dock="Top">
+			<MenuItem Header="_Setup">
+				<MenuItem Header="Configure Positions" Command="{Binding ConfigurePositionsCommand}" />
+				<Separator />
+				<MenuItem Header="_Exit" />
+			</MenuItem>
+		</Menu>
+		<StackPanel DockPanel.Dock="Left" Orientation="Vertical">
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Text="Add Score To " />
+			</StackPanel>
+		</StackPanel>
+		<Popup Name="ConfigurePositionsPopup" Placement="Center" IsOpen="{Binding ConfigurePositionsPopupVisibility, Mode=TwoWay}"
+			   Visibility="{Binding ConfigurePositionsPopupVisibility, Mode=TwoWay}">
+			<StackPanel Orientation="Vertical">
+				<CheckBox x:Name="QbCheckbox" Content="QB" Foreground="White" IsChecked="{Binding QbChecked, Mode=TwoWay}" />
+				<CheckBox x:Name="RbCheckbox" Content="RB" Foreground="White" IsChecked="{Binding RbChecked, Mode=TwoWay}" />
+				<CheckBox x:Name="WrCheckbox" Content="WR" Foreground="White" IsChecked="{Binding WrChecked, Mode=TwoWay}" />
+				<CheckBox x:Name="TeCheckbox" Content="TE" Foreground="White" IsChecked="{Binding TeChecked, Mode=TwoWay}" />
+				<CheckBox x:Name="IopCheckbox" Content="IOP" Foreground="White" IsChecked="{Binding IopChecked, Mode=TwoWay}" />
+				<CheckBox x:Name="IdpCheckbox" Content="IDP" Foreground="White" IsChecked="{Binding IdpChecked, Mode=TwoWay}" />
+				<CheckBox x:Name="DstCheckbox" Content="D/ST" Foreground="White" IsChecked="{Binding DstChecked, Mode=TwoWay}" />
+				<CheckBox x:Name="HcCheckbox" Content="Head Coach" Foreground="White" IsChecked="{Binding HcChecked, Mode=TwoWay}" />
+				<CheckBox x:Name="KCheckbox" Content="Kicker" Foreground="White" IsChecked="{Binding KickerChecked, Mode=TwoWay}" />
+				<Button Content="Done" Command="{Binding ConfigurePositionsDoneCommand}" Margin="5" />
+			</StackPanel>
+		</Popup>
+	</DockPanel>
 </Window>
