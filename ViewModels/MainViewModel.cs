@@ -26,6 +26,15 @@ namespace Possible_Points_Calculator.ViewModels
 		private bool _wrChecked;
 		private bool _dstChecked;
 		private double _potentialScore;
+		private string _startingQBs = "0";
+		private string _startingRBs = "0";
+		private string _startingWRs = "0";
+		private string _startingTEs = "0";
+		private string _startingIOPs = "0";
+		private string _startingIDPs = "0";
+		private string _startingDSTs = "0";
+		private string _startingKs = "0";
+		private string _startingHCs = "0";
 
 		public event PropertyChangedEventHandler PropertyChanged;
 
@@ -49,7 +58,95 @@ namespace Possible_Points_Calculator.ViewModels
 			}
 		}
 
-		public string StartinQBs { get; set; }
+		public string StartingQBs
+		{
+			get => _startingQBs;
+			set
+			{
+				_startingQBs = value;
+				_mainModel.UpdateStartingLineup("QB", int.Parse(value));
+			}
+		}
+
+		public string StartingRBs
+		{
+			get => _startingRBs;
+			set
+			{
+				_startingRBs = value;
+				_mainModel.UpdateStartingLineup("RB", int.Parse(value));
+			}
+		}
+
+		public string StartingWRs
+		{
+			get => _startingWRs;
+			set
+			{
+				_startingWRs = value;
+				_mainModel.UpdateStartingLineup("WR", int.Parse(value));
+			}
+		}
+
+		public string StartingTEs
+		{
+			get => _startingTEs;
+			set
+			{
+				_startingTEs = value;
+				_mainModel.UpdateStartingLineup("TE", int.Parse(value));
+			}
+		}
+
+		public string StartingIOPs
+		{
+			get => _startingIOPs;
+			set
+			{
+				_startingIOPs = value;
+				_mainModel.UpdateStartingLineup("IOP", int.Parse(value));
+			}
+		}
+
+		public string StartingIDPs
+		{
+			get => _startingIDPs;
+			set
+			{
+				_startingIDPs = value;
+				_mainModel.UpdateStartingLineup("IDP", int.Parse(value));
+			}
+		}
+
+		public string StartingDSTs
+		{
+			get => _startingDSTs;
+			set
+			{
+				_startingDSTs = value;
+				_mainModel.UpdateStartingLineup("DST", int.Parse(value));
+			}
+		}
+
+		public string StartingKs
+		{
+			get => _startingKs;
+			set
+			{
+				_startingKs = value;
+				_mainModel.UpdateStartingLineup("K", int.Parse(value));
+			}
+		}
+
+		public string StartingHCs
+		{
+			get => _startingHCs;
+			set
+			{
+				_startingHCs = value;
+				_mainModel.UpdateStartingLineup("HC", int.Parse(value));
+			}
+		}
 
 		public bool QbChecked
 		{
@@ -171,6 +268,7 @@ namespace Possible_Points_Calculator.ViewModels
 		public ICommand SubmitScoreCommand => new RelayCommand<object>(SubmitScore);
 		public ICommand CalculateCommand => new RelayCommand<object>(Calculate);
 		public ICommand SetStartingPositionsCommand => new RelayCommand<object>(SetStartingPositions);
+		public ICommand ClearScoresCommand => new RelayCommand<object>(ClearScores);
 
 		public MainViewModel()
 		{
@@ -181,6 +279,11 @@ namespace Possible_Points_Calculator.ViewModels
 		private void Positions_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
 		{
 			OnPropertyChanged(nameof(Positions));
+		}
+
+		private void ClearScores(object obj)
+		{
+			// TODO:	Implement
 		}
 
 		private void SetStartingPositions(object obj)
@@ -217,7 +320,18 @@ namespace Possible_Points_Calculator.ViewModels
 
 		private void Calculate(object obj)
 		{
+			//VerifyStartingLineup();
 			PotentialScore = _mainModel.CalculatePotential();
+
+			int.TryParse(StartingQBs, out int qbs);
+			int.TryParse(StartingRBs, out int rbs);
+			int.TryParse(StartingWRs, out int wrs);
+			int.TryParse(StartingTEs, out int tes);
+			int.TryParse(StartingIOPs, out int iops);
+			int.TryParse(StartingIDPs, out int idps);
+			int.TryParse(StartingDSTs, out int dsts);
+			int.TryParse(StartingKs, out int ks);
+			int.TryParse(StartingHCs, out int hcs);
 		}
 
 		public void ConfigurePositions(object obj)

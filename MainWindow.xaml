@@ -34,6 +34,7 @@
 			<TextBox Text="{Binding EnteredScore}" />
 			<Button Content="Submit Score" Command="{Binding SubmitScoreCommand}" />
 			<Button Content="Calculate" Command="{Binding CalculateCommand}" />
+			<Button Content="Clear Scores" Command="{Binding ClearScoresCommand}" />
 		</StackPanel>
 		<Popup Name="ConfigurePositionsPopup" Placement="Center" IsOpen="{Binding ConfigurePositionsPopupVisibility, Mode=TwoWay}"
 			   Visibility="{Binding ConfigurePositionsPopupVisibility, Mode=TwoWay}">
@@ -50,43 +51,43 @@
 				<Button Content="Done" Command="{Binding ConfigurePositionsDoneCommand}" Margin="5" />
 			</StackPanel>
 		</Popup>
-		<Popup x:Name="SetStartingLineupPopup" Placement="Center" IsOpen="{Binding StartingLineupPopupVisibility, Mode=TwoWay}">
+		<Popup x:Name="SetStartingLineupPopup" Placement="Center" IsOpen="{Binding StartingLineupPopupVisibility, Mode=TwoWay}" Width="100">
 			<StackPanel Orientation="Vertical" Background="Navy">
 				<StackPanel Orientation="Horizontal">
 					<Label Content="QB: " Foreground="White" />
-					<xctk:IntegerUpDown Text="{Binding StartingQBs}" Minimum="0" />
+					<xctk:IntegerUpDown Minimum="0" Value="{Binding StartingQBs, Mode=TwoWay}" />
 				</StackPanel>
 				<StackPanel Orientation="Horizontal">
 					<Label Content="RB: " Foreground="White" />
-					<xctk:IntegerUpDown Text="{Binding StartingRBs}" Minimum="0" />
+					<xctk:IntegerUpDown Value="{Binding StartingRBs, Mode=TwoWay}" Minimum="0" />
 				</StackPanel>
 				<StackPanel Orientation="Horizontal">
 					<Label Content="WR: " Foreground="White" />
-					<xctk:IntegerUpDown Text="{Binding StartingWRs}" Minimum="0" />
+					<xctk:IntegerUpDown Value="{Binding StartingWRs, Mode=TwoWay}" Minimum="0" />
 				</StackPanel>
 				<StackPanel Orientation="Horizontal">
 					<Label Content="TE: " Foreground="White" />
-					<xctk:IntegerUpDown Text="{Binding StartingTEs}" Minimum="0" />
+					<xctk:IntegerUpDown Value="{Binding StartingTEs, Mode=TwoWay}" Minimum="0" />
 				</StackPanel>
 				<StackPanel Orientation="Horizontal">
 					<Label Content="IOP: " Foreground="White" />
-					<xctk:IntegerUpDown Text="{Binding StartingIOPs}" Minimum="0" />
+					<xctk:IntegerUpDown Value="{Binding StartingIOPs, Mode=TwoWay}" Minimum="0" />
 				</StackPanel>
 				<StackPanel Orientation="Horizontal">
 					<Label Content="IDP: " Foreground="White" />
-					<xctk:IntegerUpDown Text="{Binding StartingIDPs}" Minimum="0" />
+					<xctk:IntegerUpDown Value="{Binding StartingIDPs, Mode=TwoWay}" Minimum="0" />
 				</StackPanel>
 				<StackPanel Orientation="Horizontal">
 					<Label Content="DST: " Foreground="White" />
-					<xctk:IntegerUpDown Text="{Binding StartingDSTs}" Minimum="0" />
+					<xctk:IntegerUpDown Value="{Binding StartingDSTs, Mode=TwoWay}" Minimum="0" />
 				</StackPanel>
 				<StackPanel Orientation="Horizontal">
 					<Label Content="K: " Foreground="White" />
-					<xctk:IntegerUpDown Text="{Binding StartingKs}" Minimum="0" />
+					<xctk:IntegerUpDown Value="{Binding StartingKs, Mode=TwoWay}" Minimum="0" />
 				</StackPanel>
 				<StackPanel Orientation="Horizontal">
 					<Label Content="HC: " Foreground="White" />
-					<xctk:IntegerUpDown Text="{Binding StartingHCs}" Minimum="0" />
+					<xctk:IntegerUpDown Value="{Binding StartingHCs, Mode=TwoWay}" Minimum="0" />
 				</StackPanel>
 			</StackPanel>
 		</Popup>
