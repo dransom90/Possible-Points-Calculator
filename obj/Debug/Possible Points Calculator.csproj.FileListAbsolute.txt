@@ -14,3 +14,21 @@ C:\Users\drans\source\repos\Possible Points Calculator\obj\Debug\Possible Points
 C:\Users\drans\source\repos\Possible Points Calculator\obj\Debug\Possible Points Calculator.csproj.CoreCompileInputs.cache
 C:\Users\drans\source\repos\Possible Points Calculator\obj\Debug\Possible Points Calculator.exe
 C:\Users\drans\source\repos\Possible Points Calculator\obj\Debug\Possible Points Calculator.pdb
+C:\Users\drans\source\repos\Possible Points Calculator\obj\Debug\Possible Points Calculator.csprojAssemblyReference.cache
+C:\Users\drans\source\repos\Possible Points Calculator\bin\Debug\Xceed.Wpf.AvalonDock.dll
+C:\Users\drans\source\repos\Possible Points Calculator\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll
+C:\Users\drans\source\repos\Possible Points Calculator\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
+C:\Users\drans\source\repos\Possible Points Calculator\bin\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
+C:\Users\drans\source\repos\Possible Points Calculator\bin\Debug\Xceed.Wpf.Toolkit.dll
+C:\Users\drans\source\repos\Possible Points Calculator\bin\Debug\cs-CZ\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\drans\source\repos\Possible Points Calculator\bin\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\drans\source\repos\Possible Points Calculator\bin\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\drans\source\repos\Possible Points Calculator\bin\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\drans\source\repos\Possible Points Calculator\bin\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\drans\source\repos\Possible Points Calculator\bin\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\drans\source\repos\Possible Points Calculator\bin\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\drans\source\repos\Possible Points Calculator\bin\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\drans\source\repos\Possible Points Calculator\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\drans\source\repos\Possible Points Calculator\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\drans\source\repos\Possible Points Calculator\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\drans\source\repos\Possible Points Calculator\obj\Debug\Possible Points Calculator.csproj.CopyComplete

@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:vm="clr-namespace:Possible_Points_Calculator.ViewModels"
 		xmlns:conv="clr-namespace:Possible_Points_Calculator.Converters"
+		xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 	<Window.DataContext>
@@ -13,16 +14,26 @@
 
 	<DockPanel>
 		<Menu DockPanel.Dock="Top">
-			<MenuItem Header="_Setup">
-				<MenuItem Header="Configure Positions" Command="{Binding ConfigurePositionsCommand}" />
-				<Separator />
+			<MenuItem Header="_File">
 				<MenuItem Header="_Exit" />
 			</MenuItem>
+			<MenuItem Header="_Settings">
+				<MenuItem Header="Select Positions" Command="{Binding ConfigurePositionsCommand}" />
+				<MenuItem Header="Set Starting Positions" Command="{Binding SetStartingPositionsCommand}" />
+				<Separator />
+			</MenuItem>
 		</Menu>
-		<StackPanel DockPanel.Dock="Left" Orientation="Vertical">
+		<StackPanel DockPanel.Dock="Top" Orientation="Vertical">
 			<StackPanel Orientation="Horizontal">
 				<TextBlock Text="Add Score To " />
+				<ComboBox x:Name="CurrentPositionsMenu" Width="100" Height="50" HorizontalAlignment="Center" VerticalAlignment="Top" BorderThickness="0" VerticalContentAlignment="Center"
+						  Padding="15,0,0,0" Background="Transparent" Foreground="Black" IsEditable="False" Margin="0"
+						  ItemsSource="{Binding Positions}" SelectedItem="{Binding SelectedPosition, Mode=TwoWay}" Text="Select Option" />
 			</StackPanel>
+
+			<TextBox Text="{Binding EnteredScore}" />
+			<Button Content="Submit Score" Command="{Binding SubmitScoreCommand}" />
+			<Button Content="Calculate" Command="{Binding CalculateCommand}" />
 		</StackPanel>
 		<Popup Name="ConfigurePositionsPopup" Placement="Center" IsOpen="{Binding ConfigurePositionsPopupVisibility, Mode=TwoWay}"
 			   Visibility="{Binding ConfigurePositionsPopupVisibility, Mode=TwoWay}">
@@ -37,6 +48,46 @@
 				<CheckBox x:Name="HcCheckbox" Content="Head Coach" Foreground="White" IsChecked="{Binding HcChecked, Mode=TwoWay}" />
 				<CheckBox x:Name="KCheckbox" Content="Kicker" Foreground="White" IsChecked="{Binding KickerChecked, Mode=TwoWay}" />
 				<Button Content="Done" Command="{Binding ConfigurePositionsDoneCommand}" Margin="5" />
+			</StackPanel>
+		</Popup>
+		<Popup x:Name="SetStartingLineupPopup" Placement="Center" IsOpen="{Binding StartingLineupPopupVisibility, Mode=TwoWay}">
+			<StackPanel Orientation="Vertical" Background="Navy">
+				<StackPanel Orientation="Horizontal">
+					<Label Content="QB: " Foreground="White" />
+					<xctk:IntegerUpDown Text="{Binding StartingQBs}" Minimum="0" />
+				</StackPanel>
+				<StackPanel Orientation="Horizontal">
+					<Label Content="RB: " Foreground="White" />
+					<xctk:IntegerUpDown Text="{Binding StartingRBs}" Minimum="0" />
+				</StackPanel>
+				<StackPanel Orientation="Horizontal">
+					<Label Content="WR: " Foreground="White" />
+					<xctk:IntegerUpDown Text="{Binding StartingWRs}" Minimum="0" />
+				</StackPanel>
+				<StackPanel Orientation="Horizontal">
+					<Label Content="TE: " Foreground="White" />
+					<xctk:IntegerUpDown Text="{Binding StartingTEs}" Minimum="0" />
+				</StackPanel>
+				<StackPanel Orientation="Horizontal">
+					<Label Content="IOP: " Foreground="White" />
+					<xctk:IntegerUpDown Text="{Binding StartingIOPs}" Minimum="0" />
+				</StackPanel>
+				<StackPanel Orientation="Horizontal">
+					<Label Content="IDP: " Foreground="White" />
+					<xctk:IntegerUpDown Text="{Binding StartingIDPs}" Minimum="0" />
+				</StackPanel>
+				<StackPanel Orientation="Horizontal">
+					<Label Content="DST: " Foreground="White" />
+					<xctk:IntegerUpDown Text="{Binding StartingDSTs}" Minimum="0" />
+				</StackPanel>
+				<StackPanel Orientation="Horizontal">
+					<Label Content="K: " Foreground="White" />
+					<xctk:IntegerUpDown Text="{Binding StartingKs}" Minimum="0" />
+				</StackPanel>
+				<StackPanel Orientation="Horizontal">
+					<Label Content="HC: " Foreground="White" />
+					<xctk:IntegerUpDown Text="{Binding StartingHCs}" Minimum="0" />
+				</StackPanel>
 			</StackPanel>
 		</Popup>
 	</DockPanel>
