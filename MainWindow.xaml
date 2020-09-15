@@ -31,10 +31,16 @@
 						  ItemsSource="{Binding Positions}" SelectedItem="{Binding SelectedPosition, Mode=TwoWay}" Text="Select Option" />
 			</StackPanel>
 
-			<TextBox Text="{Binding EnteredScore}" />
-			<Button Content="Submit Score" Command="{Binding SubmitScoreCommand}" />
-			<Button Content="Calculate" Command="{Binding CalculateCommand}" />
-			<Button Content="Clear Scores" Command="{Binding ClearScoresCommand}" />
+			<TextBox Text="{Binding EnteredScore, Mode=TwoWay}" Margin="10">
+				<TextBox.InputBindings>
+					<KeyBinding Key="Return" Command="{Binding SubmitScoreCommand}" />
+				</TextBox.InputBindings>
+			</TextBox>
+			<Button Content="Submit Score" Command="{Binding SubmitScoreCommand}" Margin="10" />
+			<Button Content="Calculate" Command="{Binding CalculateCommand}" Margin="10" />
+			<Button Content="Clear Scores" Command="{Binding ClearScoresCommand}" Margin="10" />
+
+			<TextBlock Text="{Binding PotentialScore, Mode=TwoWay}" TextAlignment="Center" />
 		</StackPanel>
 		<Popup Name="ConfigurePositionsPopup" Placement="Center" IsOpen="{Binding ConfigurePositionsPopupVisibility, Mode=TwoWay}"
 			   Visibility="{Binding ConfigurePositionsPopupVisibility, Mode=TwoWay}">
@@ -89,6 +95,7 @@
 					<Label Content="HC: " Foreground="White" />
 					<xctk:IntegerUpDown Value="{Binding StartingHCs, Mode=TwoWay}" Minimum="0" />
 				</StackPanel>
+				<Button Content="Done" Command="{Binding StartingLineUpDoneCommand}" />
 			</StackPanel>
 		</Popup>
 	</DockPanel>

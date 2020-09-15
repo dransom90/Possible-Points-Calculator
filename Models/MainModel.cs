@@ -26,8 +26,28 @@ namespace Possible_Points_Calculator.Models
 
 		public double CalculatePotential()
 		{
-			return 0;
-			// TODO:	Implement
+			double total = 0;
+
+			var copy = new List<Score>(Scores);
+
+			foreach (string position in Positions)
+			{
+				int n = _staringLineupDictionary[position];
+
+				var scores = copy.Where(x => x.Position == position).Select(y => y.Amount).OrderByDescending(z => z).Take(n);
+
+				foreach (double score in scores)
+				{
+					total += score;
+					var toRemove = copy.Where(x => x.Amount == score).First();
+					copy.Remove(toRemove);
+				}
+			}
+
+			// Calculate Flex
+			total += copy.Where(x => x.Position == "RB" || x.Position == "WR" || x.Position == "TE").Select(y => y.Amount).Max();
+
+			return total;
 		}
 
 		public bool UpdateStartingLineup(string position, int starters)
@@ -41,6 +61,11 @@ namespace Possible_Points_Calculator.Models
 			{
 				return false;
 			}
+		}
+
+		public void ClearAllScores()
+		{
+			Scores.Clear();
 		}
 
 		private void SetUpDictionary()

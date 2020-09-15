@@ -13,7 +13,7 @@ namespace Possible_Points_Calculator.ViewModels
 {
 	public class MainViewModel : INotifyPropertyChanged
 	{
-		private MainModel _mainModel;
+		private readonly MainModel _mainModel;
 		private bool _configurePositionsPopupVisibility = false;
 		private bool _startingLineupPopupVisibility = false;
 		private bool _hcChecked;
@@ -25,7 +25,7 @@ namespace Possible_Points_Calculator.ViewModels
 		private bool _rbChecked;
 		private bool _wrChecked;
 		private bool _dstChecked;
-		private double _potentialScore;
+		private double _potentialScore = 0.0;
 		private string _startingQBs = "0";
 		private string _startingRBs = "0";
 		private string _startingWRs = "0";
@@ -35,6 +35,7 @@ namespace Possible_Points_Calculator.ViewModels
 		private string _startingDSTs = "0";
 		private string _startingKs = "0";
 		private string _startingHCs = "0";
+		private string _enteredScore;
 
 		public event PropertyChangedEventHandler PropertyChanged;
 
@@ -248,7 +249,16 @@ namespace Possible_Points_Calculator.ViewModels
 		}
 
 		public string SelectedPosition { get; set; }
-		public string EnteredScore { get; set; }
+
+		public string EnteredScore
+		{
+			get => _enteredScore;
+			set
+			{
+				_enteredScore = value;
+				OnPropertyChanged();
+			}
+		}
 
 		public double PotentialScore
 		{
@@ -269,6 +279,7 @@ namespace Possible_Points_Calculator.ViewModels
 		public ICommand CalculateCommand => new RelayCommand<object>(Calculate);
 		public ICommand SetStartingPositionsCommand => new RelayCommand<object>(SetStartingPositions);
 		public ICommand ClearScoresCommand => new RelayCommand<object>(ClearScores);
+		public ICommand StartingLineUpDoneCommand => new RelayCommand<object>(ClosePopup);
 
 		public MainViewModel()
 		{
@@ -283,7 +294,8 @@ namespace Possible_Points_Calculator.ViewModels
 
 		private void ClearScores(object obj)
 		{
-			// TODO:	Implement
+			_mainModel.ClearAllScores();
+			PotentialScore = 0.0;
 		}
 
 		private void SetStartingPositions(object obj)
@@ -311,6 +323,7 @@ namespace Possible_Points_Calculator.ViewModels
 			if (success)
 			{
 				_mainModel.SubmitNewScore(SelectedPosition, score);
+				EnteredScore = string.Empty;
 			}
 			else
 			{
@@ -322,16 +335,6 @@ namespace Possible_Points_Calculator.ViewModels
 		{
 			//VerifyStartingLineup();
 			PotentialScore = _mainModel.CalculatePotential();
-
-			int.TryParse(StartingQBs, out int qbs);
-			int.TryParse(StartingRBs, out int rbs);
-			int.TryParse(StartingWRs, out int wrs);
-			int.TryParse(StartingTEs, out int tes);
-			int.TryParse(StartingIOPs, out int iops);
-			int.TryParse(StartingIDPs, out int idps);
-			int.TryParse(StartingDSTs, out int dsts);
-			int.TryParse(StartingKs, out int ks);
-			int.TryParse(StartingHCs, out int hcs);
 		}
 
 		public void ConfigurePositions(object obj)
@@ -347,6 +350,7 @@ namespace Possible_Points_Calculator.ViewModels
 		public void ClosePopup(object obj)
 		{
 			ConfigurePositionsPopupVisibility = false;
+			StartingLineupPopupVisibility = false;
 		}
 
 		private void UpdatePositionList(string position, bool status)
